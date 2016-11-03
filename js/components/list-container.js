@@ -11,26 +11,24 @@ var ListContainer = React.createClass({
 			cardsContained: []
 		}	
 	},
-	onAddInputChange: function() {
+	onAddInputChange: function(event) {
 		this.setState({
-			inputText: document.getElementById('inputText').value
+			inputText: event.target.value
 		});
 	},
 	onAddSubmit: function(event) {
 		event.preventDefault();
-		console.log(this.state.cardsContained);
-		console.log(this.state.inputText);
+		var cardText = this.state.cardsContained.concat(this.state.inputText);
 		this.setState({
-			cardsContained: this.state.cardsContained.push(this.state.inputText)
+			cardsContained: cardText
 		});
 		document.getElementById('inputText').value = '';
-		console.log(this.state);
 	},
 	render: function() {
 		return (
 			<div className="list-container" onChange={this.onAddInputChange} onSubmit={this.onAddSubmit}>
 				<div className="list-container-title">{this.props.title}</div>
-				<List />
+				<List cards={this.state.cardsContained}/>
 			</div>
 		);
 	}
