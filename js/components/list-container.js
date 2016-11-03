@@ -26,9 +26,9 @@ var ListContainer = React.createClass({
 	},
 	render: function() {
 		return (
-			<div className="list-container" onChange={this.onAddInputChange} onSubmit={this.onAddSubmit}>
+			<div className="list-container" key="listContainDiv" onChange={this.onAddInputChange} onSubmit={this.onAddSubmit}>
 				<div className="list-container-title">{this.props.title}</div>
-				<List cards={this.state.cardsContained}/>
+				<List key="this.props.title" cards={this.state.cardsContained}/>
 			</div>
 		);
 	}

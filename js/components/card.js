@@ -3,7 +3,7 @@ var ReactDom = require('react-dom');
 
 var Card = function(props) {
 	return (
-		<div className="cardContent">{props.text}</div>
+		<div className="cardContent" key={props.text}>{props.text}</div>
 	);
 };
 
